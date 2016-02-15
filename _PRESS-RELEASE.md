@@ -18,27 +18,46 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+  Habitizer
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  Change old or develope new habits with the support of Habitizer.
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  Habitizer lets you specify habit-goals like for example "I want to do sports 3 times a week" or "I want to be able to touch type with 80 words per minute" and helps you with breaking them down into daily or weekly commitments. It provides a fun way of achieving the daily / weekly / monthly goals by using a scoring- and level- system which can otherwise be foung in fun games. The user is enabled to add rules like "It's ok if I did only 2 times sports a week, if I trained touch typing at least 4 days in that week" to make the system more like a game and a little bit more flexible.
 
 ## Problem ##
   > Describe the problem your product solves.
+  People often have goals but struggle to achieve them. Often these goals can be quantified and broken down into daily or weekly commitments - or in other words a "habit". It is hard for the average person to get into a new habit or to change an old one, often one feels to lazy to actually do the small thing or lack a system which would remind them to do it.
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+  An app which provides a good way of breaking down a goal into daily commitments and add some rules of what would be a success and what not. Then a good way of a daily reminder would support the person in changing their habits and ultimately achieve their goals.
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+  Steffen's Suggestion: "Whatever you want to achieve in your life: Make it happen. Failure is no option - Don't sweat it, habitize it!"
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
+  I create a use case with two goals and 1-2 rules. I build a logic, then the server and database for it. From there I will be able to iterate towards variably changing the amount of goals and rules and to create a useful user interface with a good input and output for it.
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  "Since I habitized my life, I feel like a god. Even Kanye West is jealous."
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+  I will create some sort of outline / wireframe to explain the logic of the app. Looking at that will help with the understanding.
+
+
+
+
+
+
+
+
+
+
