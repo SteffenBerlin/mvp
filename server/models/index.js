@@ -23,8 +23,13 @@ module.exports = {
         console.log('This is the Users POST error: ' + err);
       });
     },
-    update: function ( scores ) {
-      
+    update: function ( username, scores ) {
+      User.update(scores, {where: {username: username}})
+      .then(function(){
+        console.log('successfully updated the user ' + username);
+      }, function(err){
+        console.log('This is an error in users update' + err);
+      });
     }
   },
 
@@ -39,7 +44,7 @@ module.exports = {
       });
     },
 
-    post: function ( user, commitment ) {
+    post: function ( username, commitment ) {
       User.findAll({where: {username: username}
       }).then(function(user){
         var params = commitment;
