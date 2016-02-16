@@ -12,7 +12,7 @@ module.exports = {
         callback(JSON.stringify(userdata));
       }, function(err){
         console.log('This is the user get error: ' + err);
-      })
+      });
     },
     post: function ( userdata ) {
       var newUser = User.build( userdata );
@@ -22,6 +22,9 @@ module.exports = {
       function(err){
         console.log('This is the Users POST error: ' + err);
       });
+    },
+    update: function ( scores ) {
+      
     }
   },
 
@@ -33,11 +36,23 @@ module.exports = {
       callback(JSON.stringify(commitments));
     }, function(err) {
       console.log('This is the commitments get error: ' + err);
-      })
+      });
     },
 
-    post: function () {
-
+    post: function ( user, commitment ) {
+      User.findAll({where: {username: username}
+      }).then(function(user){
+        var params = commitment;
+        params['user_id'] = user.id;
+        var newCommitment = Commitment.build( params );
+        newCommitment.save().then(function(){
+          console.log('Saved new commitment successfully');
+        }, function(err){
+          console.log('this is the save commitment error: ' + err);
+        })
+      }, function(err){
+        console.log('This is the commitment post error: ' + err);
+      });
     }
   }
 }
