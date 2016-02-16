@@ -1,34 +1,34 @@
-var express = require('express');
-var db = require('./db');
+var Sequelize = require ('sequelize');
+var db = new Sequelize ( 'commitments', 'root', '', 
+   {define: {underscored: true}});
 
-//Middleware
-var morgan = require('morgan');
-var parser = require('body-parser');
+var User = db.define ('users', {
+  username: { type: Sequelize.STRING, unique: true },
+  necDayScore: Sequelize.INTEGER,
+  curDayScore: Sequelize.INTEGER,
+  todaySuccess: Sequelize.BOOLEAN
 
-//Router
-var router = require('./routes');
+  necWeekdaySuc: Sequelize.INTEGER,
+  curWeekdaySuc: Sequelize.INTEGER,
+  thisWeekSucess: Sequelize.BOOLEAN,
+  weekSuccesses: Sequelize.INTEGER,
 
-//Express
-var app = express();
-module.exports.app = app;
+  dateLastAssessed: Sequelize.DATETIME
+});
 
-//Set port
-app.set('port', 3000);
+var Commitment = db.define ('commitments', {
+  name: { type: Sequelize.STRING, unique: true },
+  description: Sequelize.TEXT,
+  minWeekMust: Sequelize.INTEGER,
+  points: Sequelize.INTEGER,
+});
 
-//Logging and parsing
-app.use(morgan('dev'));
-app.use(parser.json());
+Commitment.belongsTo( User );
+User.hasMany( Commitment );
 
-//Set up the routes
-app.use('/app', router);
-// localhost:3000/app/dailyCommitments
-// localhost:3000/app/create
+User.sync();        //creates missing tables automatically
+Commitment.sync();
 
-//Serve the client files
-app.use(express.static(__dirname + '/../client/client'));
-
-// If we are being run directly, run the server.
-if (!module.parent) {
-  app.listen(app.get('port'));
-  console.log('Listening on', app.get('port'));
-}
+exports.User = User;
+exports.Commitment = Commitment;
+})
