@@ -35,20 +35,27 @@ module.exports = {
 
   commitments: {
     get: function ( username, callback ){
-      Commitment.findAll({where: {username: username}
-    })
-    .then(function(commitments){
-      callback(JSON.stringify(commitments));
-    }, function(err) {
-      console.log('This is the commitments get error: ' + err);
-      });
+      User.findOne({where: {username: username}
+      }).then(function(user){
+        Commitment.findAll({where: {user_id: user.dataValues.id}
+        })
+        .then(function(commitments){
+          callback(JSON.stringify(commitments));
+        }, function(err) {
+          console.log('This is the commitments get error: ' + err);
+        });
+        }, function(err){
+          console.log('This is the find user-id error: ' + err);
+        });
     },
 
     post: function ( username, commitment ) {
-      User.findAll({where: {username: username}
+      // console.log('--------------------------------------', username);
+      User.findOne({where: {username: username}
       }).then(function(user){
+        // console.log("this is the found user id", user.dataValues.id);
         var params = commitment;
-        params['user_id'] = user.id;
+        params['user_id'] = user.dataValues.id;
         var newCommitment = Commitment.build( params );
         newCommitment.save().then(function(){
           console.log('Saved new commitment successfully');

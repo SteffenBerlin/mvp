@@ -25,7 +25,7 @@ app.use('/app', router);
 // localhost:3000/app/create
 
 //Serve the client files
-app.use(express.static(__dirname + '/../client/client'));
+app.use(express.static(__dirname + '/../client'));
 
 // If we are being run directly, run the server.
 if (!module.parent) {

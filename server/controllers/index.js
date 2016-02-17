@@ -4,7 +4,7 @@ module.exports = {
 
   users: {
     get: function (req, res) {
-      models.users.get( req.body.username , function( results ){
+      models.users.get( req.query.username , function( results ){
         res.send( results );
       });
     },
@@ -20,11 +20,12 @@ module.exports = {
 
   commitments: {
     get: function( req, res ) {
-      models.commitments.get( req.body.username, function( results ){
+      models.commitments.get( req.query.username, function( results ){
         res.send( results );
       });
     },
     post: function( req, res ) {
+      console.log(req.body);
       models.commitments.post( req.body.username.username, req.body.commitment );
       res.send( );
     }
