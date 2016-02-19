@@ -1,0 +1,8 @@
+
+.unmarked {
+  text-decoration: none;
+}
+
+.marked {
+  text-decoration: line-through;
+}

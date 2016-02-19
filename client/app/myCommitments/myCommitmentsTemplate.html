@@ -1,0 +1,164 @@
+<div ng-cloak ng-init="init()">
+    <ul class="nav nav-pills">
+        <li class="">
+            <a href="javascript:void(0)" class="navbar-link">My Commitments</a>
+        </li>
+        <li class="">
+            <a href="javascript:void(0)" class="navbar-link">Add new Commitment</a>
+        </li>
+    </ul>
+    <!-- screen -->
+    <h2>
+        My today's commitments:
+    </h2>
+    <form role="form" name=>
+        <div data-wrapper-for="Grid1" class="container-fluid">
+            <div class="row">
+                <div class="col-xs-4">
+                    <!-- bootstrapgridcell -->
+                    <p>
+                        Weekly goal:
+                    </p>
+                </div>
+                <div class="col-xs-2">
+                    <!-- bootstrapgridcell -->
+                    <p>
+                        <b>5</b>
+                    </p>
+                </div>
+                <div class="col-xs-4">
+                    <!-- bootstrapgridcell -->
+                    <p>
+                        This week so far:
+                    </p>
+                </div>
+                <div class="col-xs-2">
+                    <!-- bootstrapgridcell -->
+                    <p>
+                        <b>3</b>
+                    </p>
+                </div>
+                <div class="col-xs-4">
+                    <!-- bootstrapgridcell -->
+                    <p>
+                        Daily score goal:
+                    </p>
+                </div>
+                <div class="col-xs-2">
+                    <!-- bootstrapgridcell -->
+                    <p>
+                        <b>{{dailyGoal}}</b>
+                    </p>
+                </div>
+                <div class="col-xs-4">
+                    <!-- bootstrapgridcell -->
+                    <p>
+                        Today's score:
+                    </p>
+                </div>
+                <div class="col-xs-2">
+                    <!-- bootstrapgridcell -->
+                    <p>
+                        <b>{{dayScore}}</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div data-wrapper-for="Grid2" class="container-fluid">
+            <div class="row">
+                <div class="col-xs-4">
+                    <!-- bootstrapgridcell -->
+                    <h5>
+                        Week Success?
+                    </h5>
+                </div>
+                <div class="col-xs-2">
+                    <!-- bootstrapgridcell -->
+                    <h4>
+                        No
+                    </h4>
+                </div>
+                <div class="col-xs-4">
+                    <!-- bootstrapgridcell -->
+                    <h5>
+                        Day Success?
+                    </h5>
+                </div>
+                <div class="col-xs-2">
+                    <!-- bootstrapgridcell -->
+                    <h4>
+                        {{daySuccess}}
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </form>
+    <form role="form" name=>
+        <div ng-repeat="todo in todosUnmarked track by $index">
+            <div class="col-xs-1"></div>
+            <div class="form-group ">
+                <div class="checkbox ">
+                    <label class="unmarked" ng-click="mark($index)">
+                        <input type="checkbox" value="" />
+                        {{todo.name}} - <b>{{todo.points}} points</b>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div ng-repeat="todo in todosMarked track by $index">
+            <div class="col-xs-1"></div>
+            <div class="form-group ">
+                <div class="checkbox ">
+                    <label class="marked">
+                        <input type="checkbox" value="" />
+                        {{todo.name}} - <b>{{todo.points}} points</b>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- screen -->
+    <h2>
+        My commitments:
+    </h2>
+    <div ng-repeat="com in coms track by $index" >
+        <div class="col-xs-9">
+            <ul class="list-group">
+                <li ng-click="addOne($index)" class="list-group-item list-group-item-">
+                    <p class="list-group-item-text">
+                        {{com.name}}
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-3">
+            <h4>{{com.points}} Points</h4>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
